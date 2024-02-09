@@ -23,13 +23,16 @@ class FilmService {
 
     //PETICIONES POST
     //clase service
-    fun save(film: Film): Film{
+    fun save (film:Film): Film{
         try{
+            film.title?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("Film no debe ser vacio")
             return filmRepository.save(film)
         }
-        catch (ex:Exception){
-            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.BAD_REQUEST,ex.message)
         }
+
     }
     //clase service -Petición put
     fun update(film: Film): Film{

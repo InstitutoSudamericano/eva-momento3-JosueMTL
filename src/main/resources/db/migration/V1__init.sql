@@ -1,16 +1,16 @@
 CREATE TABLE IF NOT EXISTS film (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(50),
     director VARCHAR(50),
     duration VARCHAR(50)
     );
 
 CREATE  TABLE IF NOT EXISTS scene(
     id SERIAL PRIMARY KEY,
-    description VARCHAR(100),
+    title VARCHAR (50),
     budget DECIMAL,
     minutes INT,
     film_id INT,
+    cost_of_the_suit DECIMAL(10, 2),
     FOREIGN KEY (film_id) REFERENCES film(id)
     );
 

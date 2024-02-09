@@ -1,9 +1,10 @@
 package com.example.evam3.entity
 
 import jakarta.persistence.*
+import java.math.BigDecimal
 
 @Entity
-@Table (name="film")
+@Table(name = "film")
 class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -12,4 +13,5 @@ class Film {
     var title: String? = null
     var director: String? = null
     var duration: Long? = null
+    var investment: Long? = null
 }
